@@ -1,6 +1,6 @@
 # WindConnect – Modbus TCP Monitoring and Fault Diagnostics
 
-**Eigenständiges, lokal getestetes Simulationsprojekt** · Python · Modbus TCP · Streamlit
+**Eigenständiges, getestetes Simulationsprojekt mit öffentlicher Demo** · Python · Modbus TCP · Streamlit
 
 WindConnect simuliert den Datenaustausch einer Windenergieanlage mit einer
 Monitoring-Gegenstelle eines virtuellen Kraftwerks. Das deutsche Dashboard zeigt
@@ -16,7 +16,11 @@ Steuerungssoftware. Alle Messwerte sind synthetisch. Es gibt keine Anlagensteuer
 
 [GitHub-Repository](https://github.com/abufanasa-dotcom/windconnect) · [Projektvorstellung (DE)](https://abufanasa-dotcom.github.io/projects/windconnect.html) · [Project overview (EN)](https://abufanasa-dotcom.github.io/en/projects/windconnect.html)
 
-English overview: independent local wind-turbine simulation with real Modbus TCP, fault diagnosis, a German Streamlit dashboard, and 66 automated tests. The application runs locally; screenshots and setup instructions are included. No connection to real turbines or emsys systems.
+English overview: independent wind-turbine simulation with real Modbus TCP, fault diagnostics, German/English public dashboard, and 66 automated tests. Both local installation and a hosted demonstration are available. No connection to real turbines or emsys systems.
+
+[Öffentliches Dashboard (DE)](https://windconnect-monitoring.streamlit.app/) · [Public dashboard (EN)](https://windconnect-monitoring.streamlit.app/?lang=English)
+
+Die Demo verwendet ausschließlich synthetische Daten. Jede Besuchersitzung ist unabhängig; ein Neuladen oder ein Neustart der Hosting-Instanz beginnt eine neue Simulation. Bei Inaktivität kann Streamlit Community Cloud die App schlafen legen.
 
 ## Zwei Dashboard-Varianten
 

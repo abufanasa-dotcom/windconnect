@@ -33,7 +33,10 @@ def test_public_dashboard_fault_controls_language_and_recovery():
 def test_public_dashboard_independent_browser_sessions():
     first = AppTest.from_file(str(APP), default_timeout=20).run()
     first.button(key="demo_invalid").click().run()
-    second = AppTest.from_file(str(APP), default_timeout=20).run()
+    second = AppTest.from_file(str(APP), default_timeout=20)
+    second.query_params["lang"] = "English"
+    second.run()
     assert not first.exception and not second.exception
     assert first.session_state.public_demo.latest["diagnosis"]["state"] == "INVALID_MEASUREMENT"
     assert second.session_state.public_demo.latest["diagnosis"]["state"] == "HEALTHY"
+    assert "Modbus TCP Monitoring" in second.title[0].value

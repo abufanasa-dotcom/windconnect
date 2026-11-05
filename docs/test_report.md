@@ -185,4 +185,11 @@ und einen freigegebenen Modbus-Port. Der alte Projektordner wurde als Sicherung 
 
 Die erweiterte Suite wurde nach der Implementierung vollständig ausgeführt: **66 passed in 13.51s**. Zusätzlich wurde der gleichzeitige Betrieb zweier Besuchersitzungen mit echten parallelen Modbus-Abfragen geprüft: **1 passed in 0.24s**. Ruff: All checks passed; Format: 29 files already formatted.
 
-Die öffentliche Demo nutzt je Sitzung getrennte Simulator-/Diagnoseobjekte. Pro Abfrage entsteht ein echter Loopback-TCP-Austausch; der Listener wird anschließend geschlossen. Die Tests prüfen alle Diagnosezustände, dreifache Wiederherstellung, Portfreigabe, Sitzungsisolation, DE/EN-Oberfläche und Steuerung. Im lokalen Browser wurden STALE_DATA bei erfolgreichen Reads und die Sprachumschaltung beobachtet. Die Hosting-Prüfung wird nach erfolgreicher Bereitstellung separat ergänzt.
+Die öffentliche Demo nutzt je Sitzung getrennte Simulator-/Diagnoseobjekte. Pro Abfrage entsteht ein echter Loopback-TCP-Austausch; der Listener wird anschließend geschlossen. Die Tests prüfen alle Diagnosezustände, dreifache Wiederherstellung, Portfreigabe, Sitzungsisolation, DE/EN-Oberfläche und Steuerung. Im lokalen Browser wurden STALE_DATA bei erfolgreichen Reads und die Sprachumschaltung beobachtet. Die Hosting-Prüfung ist im folgenden Abschnitt dokumentiert.
+
+
+## Öffentliche Bereitstellung verifiziert (05.11.2026)
+
+URL: https://windconnect-monitoring.streamlit.app/ (Englisch: ?lang=English). Streamlit Community Cloud installierte das Projekt unter Linux mit Python 3.13.18. Die anonyme Browserprüfung bestätigte HEALTHY, STALE_DATA bei erfolgreicher Modbus-Leseantwort, CONNECTION_LOST, INVALID_MEASUREMENT und anschließend RECOVERED/HEALTHY. Der englische Direktlink öffnete die englische Oberfläche. Die zwei unabhängigen Browsersitzungen waren getrennt. Kein Linux-Dauertest und kein Lasttest wurden durchgeführt.
+
+Abschlussprüfung nach Ergänzung des englischen Direktlink-Tests: **66 passed in 14.26s**; Ruff: All checks passed; Format: 29 files already formatted.
