@@ -1,0 +1,26 @@
+[server]
+address = "127.0.0.1"
+headless = true
+port = 8501
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "light"
+primaryColor = "#087F74"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F1F5F7"
+textColor = "#172B3A"
+borderColor = "#D6E1E7"
+font = "sans serif"
+baseRadius = "0.6rem"
+showSidebarBorder = true
+paddingTop = "1rem"
+paddingBottom = "2rem"
+chartCategoricalColors = ["#087F74", "#3569A8", "#B76025"]
+
+[theme.sidebar]
+backgroundColor = "#F1F5F7"
+secondaryBackgroundColor = "#FFFFFF"
