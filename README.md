@@ -1,4 +1,4 @@
-# WindConnect – VPP Connection & Fault Diagnostics
+# WindConnect – Modbus TCP Monitoring and Fault Diagnostics
 
 **Eigenständiges, lokal getestetes Simulationsprojekt** · Python · Modbus TCP · Streamlit
 
@@ -10,13 +10,28 @@ Messwerte, Kommunikationsstatus, Datenaktualität und nachvollziehbare Support-H
 Dieses Projekt ist kein emsys-Produkt, keine Kooperation und keine industrielle
 Steuerungssoftware. Alle Messwerte sind synthetisch. Es gibt keine Anlagensteuerbefehle.
 
-![Diagnose veralteter Messwerte](screenshots/stale-data.png)
+![Diagnose veralteter Messwerte](screenshots/public-stale-de.png)
 
 ## Repository und Portfolio
 
 [GitHub-Repository](https://github.com/abufanasa-dotcom/windconnect) · [Projektvorstellung (DE)](https://abufanasa-dotcom.github.io/projects/windconnect.html) · [Project overview (EN)](https://abufanasa-dotcom.github.io/en/projects/windconnect.html)
 
-English overview: independent local wind-turbine simulation with real Modbus TCP, fault diagnosis, a German Streamlit dashboard, and 60 automated tests. The application runs locally; screenshots and setup instructions are included. No connection to real turbines or emsys systems.
+English overview: independent local wind-turbine simulation with real Modbus TCP, fault diagnosis, a German Streamlit dashboard, and 66 automated tests. The application runs locally; screenshots and setup instructions are included. No connection to real turbines or emsys systems.
+
+## Zwei Dashboard-Varianten
+
+- `dashboard/app.py`: lokale deutsche Support-Ansicht mit fortlaufendem Backend und Dateien.
+- `public_dashboard/app.py`: deutsch-englische öffentliche Demo mit getrennten Sitzungen. Pro Abfrage erfolgt ein tatsächlicher, kurzlebiger Modbus-TCP-Austausch ausschließlich auf Loopback des App-Servers; danach wird der Listener geschlossen. Kein gemeinsamer Steuerordner und kein globaler Hintergrundserver.
+
+Die öffentliche Variante lässt sich auch lokal prüfen:
+
+```powershell
+.\.venv\Scripts\python.exe -m streamlit run public_dashboard/app.py --server.address 127.0.0.1 --server.port 8503
+```
+
+Auf Streamlit Community Cloud: Python 3.13, Branch `main`, Entrypoint `public_dashboard/app.py`, Abhängigkeiten aus `requirements.txt`. Die öffentliche HTTP-Oberfläche verwendet ihre eigene Konfiguration; der Modbus-Transport bleibt immer an 127.0.0.1 gebunden.
+
+[Begriffstabelle Deutsch/Englisch](docs/terminology_de_en.md). Der VPP-Bezug ist ein Anwendungskontext, keine reale VPP-Integration.
 
 ## Was funktioniert?
 
@@ -213,7 +228,7 @@ Vorhandene Aufnahmen zeigen ausschließlich synthetische Demo-Daten.
 ## Grenzen
 
 Das Modell ersetzt keine physikalische Turbinensimulation. Keine Prognosen, ML,
-Datenbank, Cloud, Authentifizierung oder produktive VPN-/VPP-Anbindung. Modbus TCP
+Datenbank, Authentifizierung oder produktive VPN-/VPP-Anbindung. Modbus TCP
 ist hier unverschlüsselt und nur lokal; keine industrielle Zertifizierung, Redundanz
 oder Echtzeitgarantie. Ein externer Modbus-Client kann die simulierten Werte lesen,
 aber keine Telemetrie schreiben. Der lokale Steuerordner ist für einen vertrauenswürdigen

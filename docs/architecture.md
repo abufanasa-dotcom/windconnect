@@ -86,3 +86,8 @@ NumPy 2.2.6, pandas 2.2.3 und PyArrow 20.0.0 sind auf dieser Windows-Umgebung ge
 Sie werden für Streamlit-Charts und Tabellen benötigt, nicht für die Kernsimulation.
 Hatchling 1.27.0 vermeidet die aufgetretenen langen Setuptools-Buildpfade unter Windows.
 `requirements-lock.txt` fixiert die aufgelöste Umgebung. Kein globaler Python-Umbau.
+
+
+## Öffentliche, isolierte Browser-Demonstration
+
+`public_dashboard/app.py` verwendet `PublicDemoSession` pro Streamlit-Sitzung. Simulator und Diagnose bleiben über UI-Reruns erhalten; es gibt keine gemeinsam genutzten Steuerdateien. Ein kurzlebiger Server auf 127.0.0.1 und ein separater Client tauschen je Abfrage den tatsächlichen Modbus-Registerblock aus. Anschließend wird der Listener geschlossen. Eine sitzungsbezogene Sperre verhindert überlappende Änderungen bei schnellen Reruns. Der vollständige lokale Backend-Modus bleibt separat.

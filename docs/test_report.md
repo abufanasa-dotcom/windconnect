@@ -179,3 +179,10 @@ Ergebnisse im neuen Verzeichnis: **60 passed in 22.86s**, Ruff: All checks passe
 Format: 24 files already formatted, pip check: No broken requirements found.
 Der Prozess-Smoke-Test beobachtete alle vier Zustände, drei Recoveries, Exit-Code 0
 und einen freigegebenen Modbus-Port. Der alte Projektordner wurde als Sicherung behalten.
+
+
+## Öffentliche Demo und Terminologieprüfung (05.11.2026)
+
+Die erweiterte Suite wurde nach der Implementierung vollständig ausgeführt: **66 passed in 13.51s**. Zusätzlich wurde der gleichzeitige Betrieb zweier Besuchersitzungen mit echten parallelen Modbus-Abfragen geprüft: **1 passed in 0.24s**. Ruff: All checks passed; Format: 29 files already formatted.
+
+Die öffentliche Demo nutzt je Sitzung getrennte Simulator-/Diagnoseobjekte. Pro Abfrage entsteht ein echter Loopback-TCP-Austausch; der Listener wird anschließend geschlossen. Die Tests prüfen alle Diagnosezustände, dreifache Wiederherstellung, Portfreigabe, Sitzungsisolation, DE/EN-Oberfläche und Steuerung. Im lokalen Browser wurden STALE_DATA bei erfolgreichen Reads und die Sprachumschaltung beobachtet. Die Hosting-Prüfung wird nach erfolgreicher Bereitstellung separat ergänzt.

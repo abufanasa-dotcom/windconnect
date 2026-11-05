@@ -10,12 +10,19 @@ windconnect/
   docs/file_tree.txt
   docs/interview_pitch_de.md
   docs/qa/backend-smoke.json
+  docs/qa/pytest-public-dashboard.txt
   docs/qa/pytest.txt
   docs/register_map.md
+  docs/terminology_de_en.md
   docs/test_report.md
+  public_dashboard/.streamlit/config.toml
+  public_dashboard/app.py
   pyproject.toml
   requirements-lock.txt
+  requirements.txt
   screenshots/healthy.png
+  screenshots/public-stale-de.png
+  screenshots/public-stale-en.png
   screenshots/stale-data.png
   scripts/verify_dashboard_start.py
   scripts/verify_demo.py
@@ -27,6 +34,8 @@ windconnect/
   src/windconnect/modbus_server.py
   src/windconnect/models.py
   src/windconnect/presentation.py
+  src/windconnect/public_demo.py
+  src/windconnect/public_text.py
   src/windconnect/registers.py
   src/windconnect/runner.py
   src/windconnect/simulator.py
@@ -35,6 +44,8 @@ windconnect/
   tests/test_dashboard.py
   tests/test_diagnostics.py
   tests/test_integration_modbus.py
+  tests/test_public_dashboard.py
+  tests/test_public_demo.py
   tests/test_recovery.py
   tests/test_register_map.py
   tests/test_simulator.py

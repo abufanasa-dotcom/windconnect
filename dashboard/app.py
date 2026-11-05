@@ -27,11 +27,11 @@ LABELS = {
 STATES = {"RUNNING": "In Betrieb", "STOPPED": "Gestoppt", "FAULT": "Anlagenfehler"}
 
 st.set_page_config(
-    page_title="WindConnect | VPP-Verbindungsdiagnose",
+    page_title="WindConnect | Modbus-TCP-Monitoring und Fehlerdiagnose",
     page_icon=":material/wind_power:",
     layout="wide",
 )
-st.title("WindConnect – VPP-Verbindungsdiagnose (Simulation)")
+st.title("WindConnect – Modbus-TCP-Monitoring und Fehlerdiagnose (Simulation)")
 st.caption("Demonstrationsprojekt – keine Verbindung zu realen Anlagen oder emsys-Systemen")
 
 with st.sidebar:
@@ -128,7 +128,7 @@ def monitoring():
             ).total_seconds(),
         )
         with st.container(horizontal=True):
-            st.metric("Leistung", f"{sample['power_kw']:,.1f} kW", border=True)
+            st.metric("Wirkleistung", f"{sample['power_kw']:,.1f} kW", border=True)
             st.metric("Windgeschwindigkeit", f"{sample['wind_speed_mps']:.2f} m/s", border=True)
             st.metric(
                 "Betriebszustand",
@@ -138,7 +138,7 @@ def monitoring():
             st.metric("Alter der Messwerte", f"{age:.1f} s", border=True)
         st.caption(
             f"Messzeit: {utc_label(sample['timestamp_utc'])} · "
-            f"Sequenz: {sample['sequence_number']} · alle Werte synthetisch"
+            f"Sequenznummer: {sample['sequence_number']} · alle Werte synthetisch"
         )
     left, right = st.columns([1.15, 1])
     with left, st.container(border=True):
